@@ -1,0 +1,6 @@
+framework module Pods_BaseAFAPI_BaseAFAPIUITests {
+  umbrella header "Pods-BaseAFAPI-BaseAFAPIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
