@@ -34,7 +34,6 @@ class ViewController: UIViewController {
             print(response)
             switch response {
             case .success(let loginRes):
-    
                 print(loginRes)
             case .failure(let err):
                 print(err.localizedDescription)

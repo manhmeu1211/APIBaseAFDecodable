@@ -52,8 +52,7 @@ extension Request {
         return unwrappedUrlRequest
     }
     
-    
-    
+
     var encoding: ParameterEncoding {
         return URLEncoding.default
     }
