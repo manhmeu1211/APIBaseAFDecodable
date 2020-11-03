@@ -16,8 +16,8 @@ class BaseViewController: UIViewController {
     }
     
     private func setupView() {
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

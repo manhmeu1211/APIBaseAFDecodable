@@ -6,6 +6,7 @@ target 'BaseAFAPI' do
   use_frameworks!
   pod 'Alamofire', '~> 5.2'
   pod 'CropViewController'
+  pod 'RealmSwift'
   #Data
   pod 'DataCompression'
 

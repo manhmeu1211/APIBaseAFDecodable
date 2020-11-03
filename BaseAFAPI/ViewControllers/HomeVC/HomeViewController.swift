@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getNewsData()
     }
     
     private func getNewsData() {
@@ -26,5 +27,5 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-
+    
 }

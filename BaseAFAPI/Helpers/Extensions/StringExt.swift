@@ -48,7 +48,7 @@ extension String {
         
         let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let matches = detector.matches(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count))
-
+        
         for match in matches {
             guard let range = Range(match.range, in: self) else { continue }
             attributedString.addAttribute(.link, value: self[range], range: match.range)
@@ -62,9 +62,9 @@ extension String {
         guard let data = modifiedFont.data(using: .utf8) else { return NSMutableAttributedString() }
         do {
             return try NSMutableAttributedString(data: data,
-                                          options: [.documentType: NSAttributedString.DocumentType.html,
-                                                    .characterEncoding: String.Encoding.utf8.rawValue],
-                                          documentAttributes: nil)
+                                                 options: [.documentType: NSAttributedString.DocumentType.html,
+                                                           .characterEncoding: String.Encoding.utf8.rawValue],
+                                                 documentAttributes: nil)
         } catch {
             return NSMutableAttributedString()
         }

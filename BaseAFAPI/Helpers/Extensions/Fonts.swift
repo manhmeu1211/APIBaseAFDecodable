@@ -20,7 +20,7 @@ struct Fonts {
             return UIFont(name: self.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
         }
     }
-
+    
     static func with(style: SFUIDisplay, size: CGFloat) -> UIFont {
         return UIFont(name: style.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
     }

@@ -53,7 +53,7 @@ struct SampleLoginResponse: Decodable {
         errorCode = try container.decodeIfPresent(Int.self, forKey: .errorCode)
         errorMessage = try container.decodeIfPresent(String.self, forKey: .errorMessage)
         response = try container.decode(TokenResponse.self, forKey: .response)
-
+        
     }
 }
 
@@ -63,7 +63,7 @@ struct TokenResponse: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case token
-     
+        
     }
     
     init(from decoder: Decoder) throws {

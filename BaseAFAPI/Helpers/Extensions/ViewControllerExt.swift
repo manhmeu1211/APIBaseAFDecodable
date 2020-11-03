@@ -78,7 +78,7 @@ extension UIViewController {
     var className: String {
         return NSStringFromClass(type(of: self)).components(separatedBy: ".").last!
     }
-
+    
     
     func pop(animated: Bool = true, checkInput: Bool = false) {
         navigationController?.popViewController(animated: animated)

@@ -2,23 +2,33 @@ PODS:
   - Alamofire (5.3.0)
   - CropViewController (2.5.5)
   - DataCompression (3.6.0)
+  - Realm (10.1.1):
+    - Realm/Headers (= 10.1.1)
+  - Realm/Headers (10.1.1)
+  - RealmSwift (10.1.1):
+    - Realm (= 10.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - CropViewController
   - DataCompression
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - CropViewController
     - DataCompression
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
   CropViewController: bd3ff11eeeaadc1e267bb9c3f3e9ee67a52d3285
   DataCompression: 06628f9c807b6f152e0da37635633f62fc51dc77
+  Realm: 784ca1da1453e31a9c9adc14445421a81f316119
+  RealmSwift: cc52fe0dcea56387274dff36e19219e055a3bb84
 
-PODFILE CHECKSUM: dded817641da09a1ae866f1fa8f7017ba2e7e895
+PODFILE CHECKSUM: 948e742f24596eb30382c4b31c9346de6df0b4b4
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.10.0

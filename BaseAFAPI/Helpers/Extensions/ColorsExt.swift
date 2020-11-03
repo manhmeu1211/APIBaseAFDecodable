@@ -1,7 +1,7 @@
 import UIKit
 
 public extension UIColor {
-
+    
     public convenience init(hex: String?, alpha:CGFloat? = 1.0) {
         let normalizedHexString: String = UIColor.normalize(hex)
         var c: CUnsignedInt = 0
@@ -70,18 +70,18 @@ public extension UIColor {
             hexString = String(hexString.dropFirst())
             
         }
-
+        
         if hexString.count == 3 || hexString.count == 4 {
-
+            
             let redHex = String(hexString[hexString.startIndex])
             let greenHex = String(hexString[hexString.index(hexString.startIndex, offsetBy: 1)])
             let blueHex = String(hexString[hexString.index(hexString.startIndex, offsetBy: 2)])
-
+            
             var alphaHex = ""
             if hexString.count == 4 {
                 alphaHex = String(hexString[hexString.index(hexString.startIndex, offsetBy: 3)])
             }
-
+            
             hexString = redHex + redHex + greenHex + greenHex + blueHex + blueHex + alphaHex + alphaHex
         }
         let hasAlpha = hexString.count > 7
@@ -102,7 +102,7 @@ public extension UIColor {
         }
         return hex!
     }
-
+    
     fileprivate static let cssToHexDictionairy : Dictionary<String, String> = [
         "CLEAR" : "00000000",
         "TRANSPARENT" : "00000000",
