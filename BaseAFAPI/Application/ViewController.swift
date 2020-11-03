@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getNewsData()
         login()
+        view.backgroundColor = .white
     }
     
     private func getNewsData() {
