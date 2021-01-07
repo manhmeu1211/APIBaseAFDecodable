@@ -32,3 +32,37 @@ extension UIImage {
         return newImage!
     }
 }
+
+var imageCache = NSCache<NSString, UIImage>()
+
+extension UIImageView {
+    func setImageFromUrl(ImageURL :String) {
+        if let imageFromCache = imageCache.object(forKey: ImageURL as NSString) {
+            self.image = imageFromCache
+            return
+        }
+        guard let url = URL(string: ImageURL) else { return }
+        URLSession.shared.dataTask( with: url, completionHandler: {
+            (data, response, error) -> Void in
+            DispatchQueue.main.async {
+                if let data = data {
+                    let imageCached = UIImage(data: data)
+                    imageCache.setObject(imageCached ?? UIImage(), forKey: ImageURL as NSString)
+                    self.image = imageCached
+                }
+            }
+        }).resume()
+    }
+    
+    func set(color: UIColor) {
+        image = image?.withRenderingMode(.alwaysTemplate)
+        tintColor = color
+    }
+    
+    func circleImage() {
+        layer.masksToBounds = false
+        layer.cornerRadius = frame.height/2
+        clipsToBounds = true
+    }
+    
+}
