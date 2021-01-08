@@ -30,6 +30,7 @@ extension Storyboarded where Self: UIViewController {
     }
 }
 
+
 extension UIViewController {
     
     func topController(controller: UIViewController? = UIApplication.shared.windows.first?.rootViewController) -> UIViewController {
@@ -129,3 +130,111 @@ extension UIViewController {
 
 
 
+extension UIView {
+  
+    class func nib(name: String) -> UINib {
+        return UINib(nibName: name, bundle: nil)
+    }
+    
+    class func loadFromNib<T: UIView>(name: String) -> T {
+        return Bundle.main.loadNibNamed(name, owner: nil, options: nil)![0] as! T
+    }
+    
+    func fitParent(padding: UIEdgeInsets = .zero) {
+        
+        guard let parent = self.superview else {
+            return
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: parent, attribute: .top, multiplier: 1, constant: padding.top),
+            NSLayoutConstraint(item: self, attribute: .left, relatedBy: .equal, toItem: parent, attribute: .left, multiplier: 1, constant: padding.left),
+            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1, constant: padding.bottom),
+            NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: parent, attribute: .right, multiplier: 1, constant: padding.right)
+        ])
+    }
+}
+
+
+extension UIView {
+    //Hide a view with default animation
+    func hide(animation: Bool = true, duration: TimeInterval = 0.3, completion: (() -> ())? = nil) {
+        //allway update UI on mainthread
+        DispatchQueue.main.async {
+            
+            if !animation || self.isHidden {
+                self.isHidden = true
+                completion?()
+                return
+            }
+            
+            let currentAlpha = self.alpha
+            
+            UIView.animate(withDuration: duration, animations: {
+                self.alpha = 0
+            }, completion: { (success) in
+                self.isHidden = true
+                self.alpha = currentAlpha
+                completion?()
+            })
+        }
+    }
+    
+    //Show a view with animation
+    func showLoading(animation: Bool = true, duration: TimeInterval = 0.3, completion: (() -> ())? = nil) {
+        
+        //allway update UI on mainthread
+        DispatchQueue.main.async {
+            
+            if !animation || !self.isHidden {
+                self.isHidden = false
+                completion?()
+                return
+            }
+            
+            let currentAlpha = self.alpha
+            self.alpha = 0.05
+            self.isHidden = false
+            
+            UIView.animate(withDuration: duration, animations: {
+                self.alpha = currentAlpha
+            }, completion: { (success) in
+                completion?()
+            })
+        }
+    }
+    
+    //rotate view 3D with Z
+    func rotate(duration: CFTimeInterval = 0.8, toValue: Any = Float.pi*2, repeatCount: Float = Float.infinity, removeOnCompleted: Bool = false) {
+        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation.duration = duration
+        animation.toValue = toValue
+        animation.repeatCount = repeatCount
+        animation.isRemovedOnCompletion = removeOnCompleted
+        layer.add(animation, forKey: "rotate")
+    }
+    
+    // Remove rotate animation
+    func stopRotate() {
+        layer.removeAnimation(forKey: "rotate")
+    }
+    
+    //MARK: - AddConstraint with Visual Format Language
+    func addConstraintWithFormat(format: String, views: UIView...) {
+        var viewsDictionary = [String: UIView]()
+        for (index, view) in views.enumerated() {
+            let key = "v\(index)"
+            viewsDictionary[key] = view
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format,
+                                                      options: NSLayoutConstraint.FormatOptions(),
+                                                      metrics: nil, views: viewsDictionary))
+    }
+    
+    func setHide(hidden: Bool, duration: TimeInterval) {
+        UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve, animations: {
+            self.alpha = hidden ? 0 : 1
+        })
+    }
+}

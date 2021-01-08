@@ -22,6 +22,9 @@
 		0D1A8A292551049500A042BF /* CameraPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A8A282551049500A042BF /* CameraPictures.swift */; };
 		0D1A8A462551065C00A042BF /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A8A452551065C00A042BF /* UIImageExt.swift */; };
 		0D1A8A4B255106C800A042BF /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1A8A4A255106C800A042BF /* Permission.swift */; };
+		0D31794325A84B0000489DA3 /* LoadingIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D31794025A84B0000489DA3 /* LoadingIndicatorView.xib */; };
+		0D31794425A84B0000489DA3 /* APIUIIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31794125A84B0000489DA3 /* APIUIIndicator.swift */; };
+		0D31794525A84B0000489DA3 /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D31794225A84B0000489DA3 /* LoadingIndicatorView.swift */; };
 		0D6AD98C252EF1C70063D5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AD98B252EF1C70063D5CF /* AppDelegate.swift */; };
 		0D6AD98E252EF1C70063D5CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AD98D252EF1C70063D5CF /* SceneDelegate.swift */; };
 		0D6AD990252EF1C70063D5CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6AD98F252EF1C70063D5CF /* ViewController.swift */; };
@@ -76,6 +79,9 @@
 		0D1A8A282551049500A042BF /* CameraPictures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPictures.swift; sourceTree = "<group>"; };
 		0D1A8A452551065C00A042BF /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		0D1A8A4A255106C800A042BF /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		0D31794025A84B0000489DA3 /* LoadingIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingIndicatorView.xib; sourceTree = "<group>"; };
+		0D31794125A84B0000489DA3 /* APIUIIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIUIIndicator.swift; sourceTree = "<group>"; };
+		0D31794225A84B0000489DA3 /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		0D6AD988252EF1C70063D5CF /* BaseAFAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseAFAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6AD98B252EF1C70063D5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6AD98D252EF1C70063D5CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		0D1A89D02550FE0900A042BF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				0D31793F25A84AF000489DA3 /* APIUIIndicator */,
 				0D1A89D62550FE5800A042BF /* AlertView.swift */,
 				0D1A89DB2550FE7700A042BF /* Loading.swift */,
 				0D1A89E02550FE9E00A042BF /* ViewUtils.swift */,
@@ -252,6 +259,16 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0D31793F25A84AF000489DA3 /* APIUIIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				0D31794125A84B0000489DA3 /* APIUIIndicator.swift */,
+				0D31794225A84B0000489DA3 /* LoadingIndicatorView.swift */,
+				0D31794025A84B0000489DA3 /* LoadingIndicatorView.xib */,
+			);
+			path = APIUIIndicator;
 			sourceTree = "<group>";
 		};
 		0D6AD97F252EF1C70063D5CF = {
@@ -454,6 +471,7 @@
 				0D6AD998252EF1C80063D5CF /* LaunchScreen.storyboard in Resources */,
 				0D6AD995252EF1C80063D5CF /* Assets.xcassets in Resources */,
 				0D6AD993252EF1C70063D5CF /* Main.storyboard in Resources */,
+				0D31794325A84B0000489DA3 /* LoadingIndicatorView.xib in Resources */,
 				0D1A89EA2551008E00A042BF /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,10 +612,12 @@
 				0D1A89F8255101A100A042BF /* BaseNavigation.swift in Sources */,
 				0D1A8A1E255103FF00A042BF /* DateExt.swift in Sources */,
 				0D6ADA09252F01FA0063D5CF /* SampleLogin.swift in Sources */,
+				0D31794425A84B0000489DA3 /* APIUIIndicator.swift in Sources */,
 				0D6AD9CA252EF2850063D5CF /* Enviroment.swift in Sources */,
 				0D1A8A292551049500A042BF /* CameraPictures.swift in Sources */,
 				0D6AD9D4252EF3750063D5CF /* Networking.swift in Sources */,
 				0D1A8A232551043F00A042BF /* StringExt.swift in Sources */,
+				0D31794525A84B0000489DA3 /* LoadingIndicatorView.swift in Sources */,
 				0D1A8A4B255106C800A042BF /* Permission.swift in Sources */,
 				0D6AD9D9252EF39C0063D5CF /* Request.swift in Sources */,
 				0D6AD9CF252EF3430063D5CF /* NetworkError.swift in Sources */,
